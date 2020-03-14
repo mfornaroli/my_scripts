@@ -1,0 +1,60 @@
+pandas - jupiter NoteBook
+
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sn
+df=pd.read_csv(r'C:\Users\Mfornaroli\Desktop\Turquoise QualData\vm05319_WOTLC\counters.csv')
+df.head()
+df.groupby('TYPE').mean()
+df.TYPE.unique()
+df.loc[df['TYPE'] == 'InitCnt_Start']["VALUE"].shape
+a1=df.loc[df['TYPE'] == 'InitCnt_Start']["VALUE"]
+_______________________________________________________________
+
+for type in df.TYPE.unique():
+    if 'Init' in type:
+        ax = df.loc[df['TYPE'] == type]["VALUE"].plot(kind = 'box', showmeans =True)
+        save_path=r'C:\Users\Mfornaroli\Desktop\Turquoise_QualData\vm05319_WOTLC\output' + '_' + type + '.png'
+        plt.xlabel('asse x')
+        plt.ylabel(type + ' values')
+        plt.title(type)
+        plt.grid()
+        plt.savefig(save_path)
+        plt.close()
+_______________________________________________________________
+
+data_url = 'http://bit.ly/2cLzoxH'
+gapminder = pd.read_csv(data_url)
+print(gapminder.head(3))
+df1 = gapminder[gapminder['year'].isin([1952,2007])]
+df1.head(n=7)
+sn.boxplot(y='lifeExp', x='continent', 
+                 data=df1, 
+                 palette="colorblind",
+                 hue='year')
+
+_______________________________________________________________
+
+# example applied to my data..
+
+data_url = r'C:\Users\Mfornaroli\Desktop\cartella_temp\datalog_magnum\counters.csv'
+df= pd.read_csv(data_url)
+# print(df.head(3))
+df1 = df[df['TYPE'].isin(['ReadClaimCnt_Start','ReadClaimCnt_End'])]
+df1.head(n=7)
+
+sn.boxplot(x='TYPE', y='VALUE', 
+                 data=df1, 
+                 palette="colorblind",
+                 hue='TYPE',
+                 showmeans =True)
+plt.xlabel('TYPE')
+plt.ylabel('Read reclaim count')
+plt.title('CASE 1')
+plt.grid()
+plt.rcParams["figure.figsize"] = (9,7)
+
+
+
+
+

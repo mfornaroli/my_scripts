@@ -1,0 +1,23 @@
+Train an Image Classifier with TensorFlow for Poets - Machine Learning Recipes #6
+
+tensor flow for poet
+classifier distinguishing 5 types of flowers
+5 directories, each for one type of flower.
+trining data.
+training classifier >> tensorFlow (deep learning)
+major advantage: you dont need to extrat features manually. 
+classifier will do it. 
+TF Learn. high level library built on top of tensor flow.
+Inception (one of Googles best image classifier) (trained on 1 milion images)
+we need diversity and quantity, to train an image classifier. 
+
+Gini impurity: probability that, given a dataset (and corresponding labels), if you
+assign randomly a label to an element, it's not labelled correctly. 
+uniform set: index will be zero. 
+
+information gain: weighted avg of variation in gini index
+
+each node: consider the features you have in your dataset, 
+ask a yes/no question; pick the question that gives highest
+information gain, then split dataset. 
+
